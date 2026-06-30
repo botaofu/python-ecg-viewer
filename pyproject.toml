@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-ecg-viewer"
+version = "0.1.0"
+description = "A lightweight CSV ECG viewer built with pandas, Matplotlib, and PyQt6"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "matplotlib>=3.8",
+  "numpy>=1.26",
+  "pandas>=2.1",
+  "PyQt6>=6.6",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-qt>=4.4",
+]
+
+[project.scripts]
+ecg-viewer = "ecg_viewer.__main__:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.setuptools.packages.find]
+include = ["ecg_viewer*"]
